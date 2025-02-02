@@ -129,7 +129,7 @@ To push the flow on the kestra interface  :
 curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi.yaml
 ```
 
-for running the 02_postgres_taxi.yaml
+for running the [02_postgres_taxi.yaml](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/02_postgres_taxi.yaml)
 
 I added pgAdmin for database visualization in Docker Compose.
 
@@ -330,7 +330,7 @@ variables:
 
 ## **Scheduling and Backfills**
 
-code: 02_postgres_taxi_scheduled.yaml (show link here)
+code: [02_postgres_taxi_scheduled.yaml](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/02_postgres_taxi_scheduled.yaml)
 
 To push the flow on the kestra interface  : 
 
@@ -350,10 +350,11 @@ After that, you can view your jobs running in executions tab
 
 ## **Orchestrate dbt Models**
 
-code: 
+code: [03_postgres_dbt.yaml](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/03_postgres_dbt.yaml)
 
 > Before starting your dbt task, ensure you have ingested both yellow and green taxi data into your local Postgres database. Then you can use dbt to transform the data into meaningful insights. The flow will sync the dbt models from Git to Kestra and run the `dbt build` command to build the models.
 > 
+
 
 Push the flow on the kestra interface  : 
 
@@ -387,7 +388,7 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_g
 
 ## Setup GCP
 
-Before starting with GCP, we need to setup it. To do so, we use the flow : 🔗 [04_gcp_kv.yaml.](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/02-workflow-orchestration/flows/04_gcp_kv.yaml)
+Before starting with GCP, we need to setup it. To do so, we use the flow : 🔗 [04_gcp_kv.yaml.](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/04_gcp_kv.yaml)
 
 ```python
 id: 04_gcp_kv
@@ -464,12 +465,12 @@ Then you can execute your **04_gcp_kv. After it is succcess, you can go to Names
 
 ![img7](images/img7.png)
 
-Now you can execute 05_gcp_setup to verify your credentials and create a new dataset in BigQuery. If this succeeds, you can proceed to run the 06_gcp_taxi and 06_gcp_taxi_scheduled tasks.
+Now you can execute [05_gcp_setup](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/05_gcp_setup.yaml) to verify your credentials and create a new dataset in BigQuery. If this succeeds, you can proceed to run the [06_gcp_taxi](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/06_gcp_taxi.yaml) and [06_gcp_taxi_scheduled](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/06_gcp_taxi_scheduled.yaml) tasks.
 
 After successfully running the 06_gcp_taxi_scheduled task, you can find your exported data in your GCP buckets. In BigQuery, you can view the table schemas and details
 
 ![img8](images/img8.png)
 
-Before running 07_gcp_dbt, ensure you've completed the task to ingest both yellow and green datasets into BigQuery. Once you execute 07_gcp_dbt successfully, your BigQuery will look like this 
+Before running [07_gcp_dbt](https://github.com/jeanneta/data-engineering-zoomcamp-2025/blob/main/week02/flows/07_gcp_dbt.yaml), ensure you've completed the task to ingest both yellow and green datasets into BigQuery. Once you execute 07_gcp_dbt successfully, your BigQuery will look like this 
 
 ![img9](images/img9.png)
